@@ -5,6 +5,7 @@ import discord
 
 client = discord.Client()
 trigger_words = [
+    "baby",
     "fatui",
     "housewife",
     "mpreg",

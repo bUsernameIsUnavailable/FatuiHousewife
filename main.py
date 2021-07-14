@@ -8,7 +8,9 @@ trigger_words = [
     "fatui",
     "housewife",
     "mpreg",
-    "child"
+    "child",
+    "tartaglia",
+    "ajax"
 ]
 
 

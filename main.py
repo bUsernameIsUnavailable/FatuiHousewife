@@ -26,4 +26,4 @@ async def on_message(message):
 
 
 load_dotenv()
-client.run(os.getenv('TOKEN'))
+client.run(os.environ['TOKEN'])

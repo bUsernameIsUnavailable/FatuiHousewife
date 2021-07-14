@@ -7,7 +7,8 @@ client = discord.Client()
 trigger_words = [
     "fatui",
     "housewife",
-    "mpreg"
+    "mpreg",
+    "child"
 ]
 
 

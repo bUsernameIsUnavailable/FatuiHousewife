@@ -31,6 +31,7 @@ trigger_words = [
         "yansim",
         "yanderesimulator",
         "taro",
+        "yamada",
         "senpai"
     ]
 ]

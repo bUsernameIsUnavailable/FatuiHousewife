@@ -39,7 +39,7 @@ media_files = [
         '../media/images/childempreg.jpg',
         '../media/images/promotion.png',
         '../media/videos/childe.mp4',
-        '../media/videos/chiide.mp4',
+        '../media/videos/chiIde.mp4',
         '../media/videos/persomna.mp4'
     ],
     [

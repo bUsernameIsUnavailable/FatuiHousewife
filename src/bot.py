@@ -39,6 +39,8 @@ media_files = [
     [
         '../media/images/childempreg.jpg',
         '../media/images/promotion.png',
+        '../media/images/drawnpreg.png',
+        '../media/images/expecting.png',
         '../media/videos/childe.mp4',
         '../media/videos/chiIde.mp4',
         '../media/videos/persomna.mp4'
@@ -77,7 +79,7 @@ async def on_message(message: discord.Message):
 
 def determine_file_to_send(files: list, index: int) -> Optional[str]:
     if index == 0:
-        if random.randint(0, 9) % 10 == 0:
+        if random.randint(0, 4) % 5 == 0:
             return random.choice(files[2:])
 
         now = datetime.now()
@@ -86,7 +88,7 @@ def determine_file_to_send(files: list, index: int) -> Optional[str]:
     if index == 1 or index == 2:
         return files[0]
 
-    if index == 3 and random.randint(0, 2) % 3 == 0:
+    if index == 3 and random.randint(0, 9) % 10 == 0:
         return files[0]
 
     return None

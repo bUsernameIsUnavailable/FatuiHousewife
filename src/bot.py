@@ -87,7 +87,10 @@ async def on_message(message: discord.Message):
         if any(word in processed_message for word in trigger_words[i]):
             file = discord.File(determine_file_to_send(media_files[i], i))
             if file is not None:
-                await message.channel.send(file=file)
+                try:
+                    await message.channel.send(file=file)
+                except Exception as e:
+                    print(e)
             break
 
 

@@ -50,7 +50,7 @@ media_files = [
         '../media/images/expecting.png',
         '../media/videos/childe.mp4',
         '../media/videos/chiIde.mp4',
-        '../media/videos/persomna.mp4'
+        '../media/videos/persomna.mp4',
         '../media/images/shapeofyou.gif'
     ],
     [

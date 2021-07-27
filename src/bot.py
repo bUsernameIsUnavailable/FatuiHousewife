@@ -37,6 +37,9 @@ trigger_words = [
     [
         "ayaka",
         "kamisato"
+    ],
+    [
+        "diluc"
     ]
 ]
 media_files = [
@@ -48,6 +51,7 @@ media_files = [
         '../media/videos/childe.mp4',
         '../media/videos/chiIde.mp4',
         '../media/videos/persomna.mp4'
+        '../media/images/shapeofyou.gif'
     ],
     [
         '../media/images/johnlee.png'
@@ -60,6 +64,9 @@ media_files = [
     ],
     [
         '../media/videos/dabadayaka.mp4'
+    ],
+    [
+        '../media/images/strawluc.gif'
     ]
 ]
 
@@ -76,7 +83,7 @@ async def on_message(message: discord.Message):
 
     processed_message = "".join(message.content.split()).lower()
 
-    for i in range(5):
+    for i in range(6):
         if any(word in processed_message for word in trigger_words[i]):
             file = discord.File(determine_file_to_send(media_files[i], i))
             if file is not None:
@@ -86,13 +93,13 @@ async def on_message(message: discord.Message):
 
 def determine_file_to_send(files: list, index: int) -> Optional[str]:
     if index == 0:
-        if random.randint(0, 4) % 5 == 0:
+        if random.randint(0, 3) % 4 == 0:
             return random.choice(files[2:])
 
         now = datetime.now()
         return files[now.day == birthday.day and now.month == birthday.month]
 
-    if index in [1, 2, 4]:
+    if index in [1, 2, 4, 5]:
         return files[0]
 
     if index == 3 and random.randint(0, 9) % 10 == 0:

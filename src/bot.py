@@ -33,6 +33,10 @@ trigger_words = [
         "taro",
         "yamada",
         "senpai"
+    ],
+    [
+        "ayaka",
+        "kamisato"
     ]
 ]
 media_files = [
@@ -53,6 +57,9 @@ media_files = [
     ],
     [
         '../media/images/tarompreg.png'
+    ],
+    [
+        '../media/videos/dabadayaka.mp4'
     ]
 ]
 
@@ -69,7 +76,7 @@ async def on_message(message: discord.Message):
 
     processed_message = "".join(message.content.split()).lower()
 
-    for i in range(4):
+    for i in range(5):
         if any(word in processed_message for word in trigger_words[i]):
             file = discord.File(determine_file_to_send(media_files[i], i))
             if file is not None:
@@ -85,7 +92,7 @@ def determine_file_to_send(files: list, index: int) -> Optional[str]:
         now = datetime.now()
         return files[now.day == birthday.day and now.month == birthday.month]
 
-    if index == 1 or index == 2:
+    if index in [1, 2, 4]:
         return files[0]
 
     if index == 3 and random.randint(0, 9) % 10 == 0:

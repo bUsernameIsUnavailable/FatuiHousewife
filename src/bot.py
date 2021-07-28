@@ -44,7 +44,7 @@ trigger_words = [
     [
         "kinky",
         "horny",
-        "ero",
+        "bonk",
         "booba"
     ]
 ]

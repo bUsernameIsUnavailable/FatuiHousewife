@@ -46,6 +46,15 @@ trigger_words = [
         "horny",
         "bonk",
         "booba"
+    ],
+    [
+        "baal",
+        "ball",
+        "raiden",
+        "shogun"
+    ],
+    [
+        "bald"
     ]
 ]
 media_files = [
@@ -79,6 +88,15 @@ media_files = [
     [
         '../media/images/bonk_meteor.gif',
         '../media/images/end_user_bonk.gif'
+    ],
+    [
+        '../media/images/baaljeet.jpg',
+        '../media/images/baals.jpg',
+        '../media/images/ballin.gif',
+        '../media/images/baaldi.jpg'
+    ],
+    [
+        '../media/images/baaldi.jpg'
     ]
 ]
 nsfw_files = [
@@ -88,6 +106,8 @@ nsfw_files = [
     [
         '../media/images/80084.png'
     ],
+    [],
+    [],
     [],
     [],
     [],
@@ -108,7 +128,7 @@ async def on_message(message: discord.Message):
 
     processed_message = "".join(message.content.split()).lower()
 
-    for i in range(7):
+    for i in range(len(trigger_words)):
         if any(word in processed_message for word in trigger_words[i]):
             file = determine_file_to_send(i, message.channel.nsfw)
             if file is not None:
@@ -130,16 +150,12 @@ def determine_file_to_send(index: int, is_nsfw: bool) -> Optional[str]:
     if index == 1:
         return random.choice(media_files[index] + is_nsfw * nsfw_files[index])
 
-    if index in [2, 4, 5]:
-        return media_files[index][0]
-
     if index == 3 and random.randint(0, 9) % 10 == 0:
         return media_files[index][0]
 
-    if index == 6:
-        return random.choice(media_files[index])
-
-    return None
+    return random.choice(media_files[index])\
+        if index < len(media_files)\
+        else None
 
 
 def main():

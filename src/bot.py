@@ -1,15 +1,15 @@
 import os
 from dotenv import load_dotenv
-from typing import Optional
+from typing import List, Optional
 
 import random
 from datetime import datetime
 
 import discord
 
-bot = discord.Client()
-birthday = datetime.strptime('20/07/2021', '%d/%m/%Y')
-trigger_words = [
+bot: discord.client.Client = discord.Client()
+birthday: datetime = datetime.strptime('20/07/2021', '%d/%m/%Y')
+trigger_words: List[List[str]] = [
     [
         "baby",
         "fatui",
@@ -55,9 +55,12 @@ trigger_words = [
     ],
     [
         "bald"
+    ],
+    [
+        "klee"
     ]
 ]
-media_files = [
+media_files: List[List[str]] = [
     [
         '../media/images/childempreg.jpg',
         '../media/images/promotion.png',
@@ -67,7 +70,8 @@ media_files = [
         '../media/videos/chiIde.mp4',
         '../media/videos/persomna.mp4',
         '../media/images/shapeofyou.gif',
-        '../media/images/fat_ui.gif'
+        '../media/images/fat_ui.gif',
+        '../media/images/thrills.png'
     ],
     [
         '../media/images/johnlee.png',
@@ -97,15 +101,19 @@ media_files = [
     ],
     [
         '../media/images/baaldi.jpg'
+    ],
+    [
+        '../media/images/mom.png'
     ]
 ]
-nsfw_files = [
+nsfw_files: List[List[str]] = [
     [
         '../media/images/80084.png'
     ],
     [
         '../media/images/80084.png'
     ],
+    [],
     [],
     [],
     [],
@@ -114,6 +122,7 @@ nsfw_files = [
     [],
     []
 ]
+trigger_words_length: int = len(trigger_words)
 
 
 @bot.event
@@ -126,11 +135,11 @@ async def on_message(message: discord.Message):
     if message.author == bot.user:
         return
 
-    processed_message = "".join(message.content.split()).lower()
+    processed_message: str = "".join(message.content.split()).lower()
 
-    for i in range(len(trigger_words)):
+    for i in range(trigger_words_length):
         if any(word in processed_message for word in trigger_words[i]):
-            file = determine_file_to_send(i, message.channel.nsfw)
+            file: Optional[str] = determine_file_to_send(i, message.channel.nsfw)
             if file is not None:
                 try:
                     await message.channel.send(file=discord.File(file))

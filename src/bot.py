@@ -58,6 +58,9 @@ trigger_words: List[List[str]] = [
     ],
     [
         "klee"
+    ],
+    [
+        "xiao"
     ]
 ]
 media_files: List[List[str]] = [
@@ -104,6 +107,9 @@ media_files: List[List[str]] = [
     ],
     [
         '../media/images/mom.png'
+    ],
+    [
+        '../media/videos/not_holy.mp4'
     ]
 ]
 nsfw_files: List[List[str]] = [
@@ -120,7 +126,10 @@ nsfw_files: List[List[str]] = [
     [],
     [],
     [],
-    []
+    [],
+    [
+        '../media/videos/holy.mp4'
+    ]
 ]
 trigger_words_length: int = len(trigger_words)
 
@@ -151,13 +160,13 @@ async def on_message(message: discord.Message):
 def determine_file_to_send(index: int, is_nsfw: bool) -> Optional[str]:
     if index == 0:
         if random.randint(0, 3) % 4 == 0:
-            return random.choice(media_files[index][2:] + is_nsfw * nsfw_files[index])
+            return random.choice(media_files[index][2:] + is_nsfw * 2 * nsfw_files[index])
 
         now = datetime.now()
         return media_files[index][now.day == birthday.day and now.month == birthday.month]
 
-    if index == 1:
-        return random.choice(media_files[index] + is_nsfw * nsfw_files[index])
+    if index in [1, 10]:
+        return random.choice(media_files[index] + is_nsfw * 2 * nsfw_files[index])
 
     if index == 3 and random.randint(0, 9) % 10 == 0:
         return media_files[index][0]

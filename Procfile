@@ -1,1 +1,1 @@
-worker: cd src && python bot.py
+worker: java -Dserver.port=$PORT $JAVA_OPTS -jar target/FatuiHousewife-0.0.1-SNAPSHOT.jar

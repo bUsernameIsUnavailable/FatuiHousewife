@@ -1,3 +1,1 @@
-# [Invite bot](https://discord.com/api/oauth2/authorize?client_id=864826413726564383&permissions=35840&scope=bot)
-
-![childempreg.jpg](https://github.com/bUsernameIsUnavailable/FatuiHousewife/blob/master/media/images/childempreg.jpg?raw=true)
+# [Invite bot](https://discord.com/api/oauth2/authorize?client_id=867013749490843649&permissions=35840&scope=bot)

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PostConstruct;
 
+
 @SpringBootApplication
 public class Client {
     private static final Logger LOGGER = LoggerFactory.getLogger(DiscordShards.class);

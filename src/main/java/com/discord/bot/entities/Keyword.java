@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 @Entity(name = "Keyword")
 @Table(name = "\"Keyword\"")
 public class Keyword {

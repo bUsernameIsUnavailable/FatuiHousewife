@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
 
+
 @Component
 public class FilesKeywordsCommand implements FilesKeywordsListener {
     private final FilesKeywordsService service;

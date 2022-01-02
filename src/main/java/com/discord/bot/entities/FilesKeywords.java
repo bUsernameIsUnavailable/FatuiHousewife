@@ -4,6 +4,7 @@ import com.discord.bot.entities.keys.FilesKeywordsKey;
 
 import javax.persistence.*;
 
+
 @Entity(name = "Files_Keywords")
 @Table(name = "\"Files_Keywords\"")
 public class FilesKeywords {

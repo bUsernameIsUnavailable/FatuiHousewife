@@ -5,6 +5,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 @Embeddable
 public class FilesKeywordsKey implements Serializable {
     @Column(name = "\"keyword\"", nullable = false)

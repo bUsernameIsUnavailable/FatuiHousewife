@@ -2,6 +2,7 @@ package com.discord.bot.entities;
 
 import javax.persistence.*;
 
+
 @Entity(name = "File")
 @Table(name = "\"File\"")
 public class File {

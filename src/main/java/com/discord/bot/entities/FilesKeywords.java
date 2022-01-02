@@ -28,10 +28,6 @@ public class FilesKeywords {
         return compositeKey.getKeyword();
     }
 
-    public String getUrl() {
-        return compositeKey.getFile();
-    }
-
     public Keyword getKeyword() {
         return keyword;
     }

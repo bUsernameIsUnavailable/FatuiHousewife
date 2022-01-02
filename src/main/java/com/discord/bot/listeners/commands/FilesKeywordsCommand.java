@@ -3,6 +3,7 @@ package com.discord.bot.listeners.commands;
 import com.discord.bot.listeners.FilesKeywordsListener;
 import com.discord.bot.services.FilesKeywordsService;
 import com.discord.bot.services.KeywordService;
+import emoji4j.EmojiUtils;
 import org.javacord.api.entity.channel.ServerTextChannel;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.springframework.stereotype.Component;
@@ -37,7 +38,7 @@ public class FilesKeywordsCommand implements FilesKeywordsListener {
     private void sendFileUrl(final String message, final ServerTextChannel channel) {
         final var matcher = Pattern.compile(
                 "(" + String.join("|", keywordService.getAllWords()) + ")"
-        ).matcher(message.replaceAll("\\s+|­*", "").toLowerCase());
+        ).matcher(EmojiUtils.shortCodify(message.replaceAll("\\s+|­*", "").toLowerCase()));
 
         while (matcher.find()) {
             final var urls = service.getFileUrlsFor(matcher.group(), channel.isNsfw());

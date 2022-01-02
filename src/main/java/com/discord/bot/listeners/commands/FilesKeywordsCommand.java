@@ -26,9 +26,8 @@ public class FilesKeywordsCommand implements FilesKeywordsListener {
         messageCreateEvent.getServerTextChannel().ifPresent(
                 channel -> {
                     final var author = messageCreateEvent.getMessageAuthor();
-                    if (author.isYourself() || author.isWebhook()) {
+                    if (author.isYourself() || author.isWebhook())
                         return;
-                    }
 
                     sendFileUrl(messageCreateEvent.getMessageContent(), channel);
                 }
@@ -51,7 +50,7 @@ public class FilesKeywordsCommand implements FilesKeywordsListener {
                     iterator.next();
                 }
                 channel.sendMessage(iterator.next());
-                return;
+                break;
             }
         }
     }

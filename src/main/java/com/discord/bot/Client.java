@@ -45,9 +45,7 @@ public class Client {
 
     @Value("${TOKEN}")
     private void setToken(final String token) {
-        if (Client.token == null) {
-            Client.token = token;
-        }
+        Client.token = token;
     }
 
     private final class DiscordShards {
